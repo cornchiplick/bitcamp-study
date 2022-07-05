@@ -1,2 +1,18 @@
 git pull //최신파일 다운로드
 git clone https://github.com/eomjinyoung/~~~ //repo에서 다운받아옴
+------------------------------------------------
+git clone https://github.com/cornchiplick/bitcamp-study // github.com에 있는 repo를 local로 복제해옴.
+git add Hello.java // 백업 명단에 파일을 등록한다. (=staged 상태)
+    파일명 옆에 U : Untracked : 아직 업로드되지 않음
+    파일명 옆에 A : ??? : 인덱스에 추가됨
+    파일명 옆에 M : Modify : 수정되었다는 뜻
+git add . // 현재 폴더부터 하위폴더까지 뒤져서 새로 추가되는걸 전부 git add함
+git commit -m "백업이유" // 백업 명단에 등록된 파일이나 폴더를 로컬저장소에 백업한다. (=snapshot 상태)
+    오류시 :
+    git config --global user.email "ilsunkiss@gmail.com"
+    git config --global user.name "cornchiplick"
+git push // 로컬저장소에 백업한 내용을 git의 repo에 백업한다.
+    username : github 계정명
+    password : personal access token 보안코드 마우스 우클릭으로 입력 (입력해도 투명해서 안보임) // github의 settings-devoper settings-personal access tokens
+최초에 git clone 하고난 이후에는 git pull
+------------------------------------------

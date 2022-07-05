@@ -243,6 +243,49 @@ git add Hello.java // 백업 명단에 파일을 등록한다. (=staged 상태)
     파일명 옆에 M : Modify : 수정되었다는 뜻
 git add . // 현재 폴더부터 하위폴더까지 뒤져서 새로 추가되는걸 전부 git add함
 git commit -m "백업이유" // 백업 명단에 등록된 파일이나 폴더를 로컬저장소에 백업한다. (=snapshot 상태)
+    오류시 :
+    git config --global user.email "ilsunkiss@gmail.com"
+    git config --global user.name "cornchiplick"
 git push // 로컬저장소에 백업한 내용을 git의 repo에 백업한다.
     username : github 계정명
-    password : personal access token 보안코드 마우스 우클릭으로 입력 (입력해도 투명해서 안보임)
+    password : personal access token 보안코드 마우스 우클릭으로 입력 (입력해도 투명해서 안보임) // github의 settings-devoper settings-personal access tokens
+최초에 git clone 하고난 이후에는 git pull
+------------------------------------------
+Hello.java : 자바언어로 작성한 명령문이 들어있음. : 소스파일(source)
+Hello.class : Bytecode(= portable code = p-code = os에 관계없이 여기저기서 적용할 수 있다. 라는 뜻) : (클래스파일 = 목적파일)
+
+cmd 에서
+    Hello.class
+즉시 실행할 수 없다. 완전한 기계어가 아니기 때문에
+Hello.class파일을 기계어로 바꿔주려면 JVM(Java.exe)이 필요하다
+    java.exe Hello
+를 해야한다. 이때 .class를 쓰면 안된다!, 패키지 네임과 혼동할까봐..?
+--------------------------------
+m1(), m2(), ... 를 모아서 classA, classB, ...를 만들었고
+이걸 모아서 폴더에 분리 : 폴더(=패키지 in java, =네임스페이스 in C++)
+요즘은 monolotic system에서 micro-service 로 바뀌고 있음 : class보다 method(=functional program)로 쪼개서 나중에 합치기 때문
+--------------------------------
+bitcamp-study/
+    src/Hello.java
+    bin/Hello.java
+==>> $ javac -d bin -encoding UTF-8 src/Hello.java
+        -d bin : .class 파일을 둘 폴더를 지정!! // -d : 디렉토리
+        src/Hello.java : src폴더 밑에 있는 Hello.java라는 뜻 : 이름을 마음대로 할 수 있지만 관례상(convention!!!!!) src 폴더라고 한다.(무조건)
+==>> $ java -classpath bin Exam09
+    -classpath = -cp : 현재폴더에서 다음 경로를 찾아서 그 안에 있는걸 실행해라
+--------------------------------
+*프로젝트 분리 : 한개의 깃 저장소에 여러 개의 프로젝트 만들기
+bitcamp-study/ : 깃 저장소
+    java-lang/
+        src/Hello.java
+        bin/Hello.class
+-------------------------------------------------------
+깃저장소-project(root)-project(곁)
+eomcs-java-lang\app\src\main\java/Hello2.java
+~~main/java/com/lang/
+
+-------------------------------------
+*자바 호환(compatible)언어
+    .java >> .class
+    .kt >> .class : 요즘 안드로이드 개발언어
+    .groovy >> .class
