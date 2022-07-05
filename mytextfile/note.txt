@@ -280,7 +280,7 @@ bitcamp-study/ : 깃 저장소
         src/Hello.java
         bin/Hello.class
 -------------------------------------------------------
-깃저장소-project(root)-project(곁)
+깃저장소-project(root)-project(sub)
 eomcs-java-lang\app\src\main\java/Hello2.java
 ~~main/java/com/lang/
 
