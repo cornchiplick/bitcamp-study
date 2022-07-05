@@ -76,3 +76,6 @@ exam0300 :
 >> Object class에 있는 기본제공함수 toString()을 가져와서 자식 class인 Exam0300 이 쫌 수정을 하겠습니다. 라는 뜻??
 >> 그렇다면 @Override의 용법은 어떻게 되는가?
 >> 이것과 Annotation은 무슨 관계가 있는가?
+>> pirimitive와 reference는 무슨 관계가 있는가?
+>> class와 instance는 무슨 관계가 있는가?
+>> 결국 static과 void는 뭘 의미하고 다른 함?수?(main과 같은..)에 어떻게 적용할 수 있는가?
