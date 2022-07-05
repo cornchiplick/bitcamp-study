@@ -1,0 +1,30 @@
+*형상관리시스템
+= configuration management system(cms)
+= versim management system(vms)
+>> 1) 소스코드의 변경을 기록, 보관하는 시스템
+소스코드의 변경 : who, when, where, what
+>> 2) 공유, 접근 권한 제어
+
+1. local 버전관리 시스템 :
+    1) 개인용 버전관리 시스템
+    2) 공유 불가.
+
+2. 중앙 버전관리 시스템 :
+(저장소 = 폴더 = Repository = Repo)
+upload = commit = check in
+download = check out
+    1) 중앙서버에서 관리 (변경사항을)
+    2) 공유 가능.
+
+3. 분산 버전관리 시스템 : ex) git
+복제 업로드 : push
+
+git clone https://github.com/eomcs/eomcs-java
+git add .
+git commit -m "ok"
+------- 까지하면 로컬 저장소에 commit 된것 -----------
+git push
+-------- 까지하면 서버에 push 된것 ------------
+(서버 변경 사항을 가져오기 = pull)
+git pull
+-------- 까지하면 변경사항 적용된 것을 다시 가져옴 -------

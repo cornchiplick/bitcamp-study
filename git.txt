@@ -1,0 +1,2 @@
+git pull //최신파일 다운로드
+git clone https://github.com/eomjinyoung/~~~ //repo에서 다운받아옴
