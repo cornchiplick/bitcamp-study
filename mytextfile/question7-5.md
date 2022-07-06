@@ -79,3 +79,4 @@ exam0300 :
 >> pirimitive와 reference는 무슨 관계가 있는가?
 >> class와 instance는 무슨 관계가 있는가?
 >> 결국 static과 void는 뭘 의미하고 다른 함?수?(main과 같은..)에 어떻게 적용할 수 있는가?
+*/
