@@ -6,7 +6,7 @@ class MyClass {
   int a = 11; // 인스턴스 변수
   static int b = 22; // 클래스 변수
 
-  static void m1(int v1/*로컬변수=파라미터*/) {
+  static void m1(int v1/*로컬변수=파라미터*/) { //여기 있는걸 주로 파라미터라고 함!
     int v2; // 로컬 변수
     v2 = 200;
 

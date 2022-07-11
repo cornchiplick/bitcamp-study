@@ -56,7 +56,7 @@ public class Exam0141 {
 //    따라서 int 보다 작은 크기의 메모리 값을 다룰 때는
 //    내부적으로 int로 자동 형변환을 수행한 다음에 연산을 수행한다.
 //    내부적으로 자동 형변환하는 것을 
-//    "암시적 형변환(implicit type conversion)"이라 부른다.
+//    "암시적 형변환(implicit type conversion)"이라 부른다. 그 반대는 explicit type conversion !!!
 // => byte + byte = int
 // => short + short = int
 // => byte + short = int

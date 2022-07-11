@@ -14,7 +14,7 @@ public class Exam0425 {
     
     // 주의!
     // 연산 결과가 해당 타입의 크기를 벗어 난다면 그 결과 값이 짤린다.
-    float f3 = f1 + f2;
+    float f3 = f1 + f2; // 99999.99111 은 float크기를 넘어간다.
     System.out.println(f3);
     
     // 그래서 부동소수점을 다룰 때는 가능한 float 보다 두 배 더 정밀한 double을 사용하라!
