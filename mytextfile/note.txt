@@ -565,3 +565,26 @@ class Math {        // 수학관련 메서드를 분류한 class (=도구를 담
     min(){--}
     ...
 }
+
+7/12----------------------------------------------------------------------------
+* expression : statement 이지만 결과를 리턴하는 statement를 한정해서 부르는 말
+
+    int j = i++;
+
+    위 문장은 컴파일될 때 다음과 같은 형태로 변환된다.
+    int temp = i;
+    i = i + 1;
+    int j = temp;
+
+* Buffer : 키보드에서 입력한 키 값을 임시 보관하는 메모리
+
+nextInt() : 버퍼에서 숫자만 쏙 빼가서 읽음 (1 2 3 (enter)) >> 1 2 3 을 읽고 (enter)가 남음
+    이거 지워줄려고 nextLine()을 써서 지움
+        nextLine() : (enter)를 만날 때까지 데이터를 읽어들임
+
+* System Integration (시스템 통합) : SI
+    - 기존 시스템(= Legacy) 에 새로 개발한 시스템(= 새 기능)을 연동(= 통합)
+
+* System Maintenance : SM
+    - 기능변경, 추가, 삭제
+    - 버그패치
