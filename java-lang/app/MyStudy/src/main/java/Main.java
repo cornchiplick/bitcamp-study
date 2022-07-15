@@ -1,24 +1,35 @@
+import java.lang.Math;
 import java.util.Scanner;
 
 public class Main {
 
-  static int plus(int a, int b) {
-    return a + b;
+  static void triangle(int a, int b, int c) {
+    int a2 = Math.pow(a, 2);
+    int b2 = Math.pow(b, 2);
+    int c2 = Math.pow(c, 2);
+
+    if ((a2 + b2 == c2) || (a2 + c2 == b2) || (b2 + c2 == a2)) {
+      System.out.println("right");
+      return;
+    } else {
+      System.out.println("wrong");
+      return;
+    }
   }
 
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
 
-    int n = in.nextInt();
-    int[] num = new int[2 * n];
+    while (in.hasNextInt()) {
+      int a = in.nextInt();
+      int b = in.nextInt();
+      int c = in.nextInt();
 
-    for (int i = 0; i < num.length; i += 2) {
-      num[i] = in.nextInt();
-      num[i + 1] = in.nextInt();
-    }
-
-    for (int i = 0; i < num.length; i += 2) {
-      System.out.println(plus(num[i], num[i + 1]));
+      if (a == 0 && b == 0 && c == 0) {
+        break;
+      } else {
+        triangle(a, b, c);
+      }
     }
   }
 }

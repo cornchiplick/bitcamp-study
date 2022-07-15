@@ -37,4 +37,16 @@ public class Prompt {
   static void close() {
     keyboardInput.close();
   }
+
+  static String inputTitleUpdate(String title) {
+    System.out.printf("제목?(%s) ",title);
+    return keyboardInput.nextLine();
+  }
+
+  static String inputContentUpdate(String content) {
+    System.out.printf("내용?(%s) ",content);
+    return keyboardInput.nextLine();
+  }
+
+
 }
