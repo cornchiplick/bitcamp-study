@@ -5,7 +5,7 @@ package com.eomcs.lang.ex04;
 public class Exam0432 {
   public static void main(String[] args) {
     
-    char c1, c2, c3; // char때문에 println 했을 때 A라고 출력할 수 있다. int였다면 65를 출력한다!!
+    char c1, c2, c3;
     
     // 문자 'A'를 변수에 저장하는 방법?
     //- 문자 'A'의 UCS-2 코드 값을 저장하면 된다.

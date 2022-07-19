@@ -50,7 +50,7 @@ public class Exam0150 {
     //    float r9 = f + d; // 컴파일 오류!
 
     // byte + short + int + long + float + double = double
-    //long r10 = b + s + i + l + f + d; // 컴파일 오류! byte + short = int, int+int = int, int + long = long, ...
+    //long r10 = b + s + i + l + f + d; // 컴파일 오류!
 
     // float + int + long = float
     //    long r11 = f + i + l; // 컴파일 오류!

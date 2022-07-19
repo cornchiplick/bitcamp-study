@@ -25,7 +25,7 @@ public class Exam0330 {
     // r = false & (b = true)
     // => & 연산자의 경우 왼쪽 값으로 결과를 예측할 수 있다 하더라도,
     //    결과에 상관없이 & 오른쪽 문장을 무조건 실행한다.
-    // r = false & (b 변수의 값을 true 바꾸고, b 변수의 값을 이 자리에 놓는다.) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // r = false & (b 변수의 값을 true 바꾸고, b 변수의 값을 이 자리에 놓는다.)
     // r = false & true
     // r = false
     System.out.printf("a=%b, b=%b, r=%b\n", a, b, r);

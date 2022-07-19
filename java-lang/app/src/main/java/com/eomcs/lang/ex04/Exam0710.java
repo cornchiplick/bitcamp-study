@@ -10,7 +10,8 @@ public class Exam0710 {
 
   public static void main(String[] args/*로컬변수=파라미터*/) {
 
-    int c; // 로컬 변수 // 얘는 주로 로컬변수라고 함! 파라미터 보다는..
+    int c; // 로컬 변수
+
   }
 }
 
