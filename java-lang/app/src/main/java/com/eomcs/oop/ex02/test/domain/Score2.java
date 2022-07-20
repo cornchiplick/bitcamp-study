@@ -13,7 +13,7 @@ public class Score2 {
     this.kor = k;
     this.eng = e;
     this.math = m;
-
+    
     this.compute();
   }
 

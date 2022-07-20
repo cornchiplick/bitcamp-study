@@ -27,7 +27,7 @@ public class Exam0410 {
     // => 다음과 파라미터가 없는 생성자가 기본 생성자이다.(default constructor)
     Score() {
       System.out.println("Score()");
-    }
+    } 
 
 
     public void compute() {

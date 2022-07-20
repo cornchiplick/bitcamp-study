@@ -1,7 +1,7 @@
 /*
  * 게시글 메뉴 처리 클래스
  */
-package com.bitcamp.board;
+package com.bitcamp.board.practice;
 
 public class BoardHandler {
 
