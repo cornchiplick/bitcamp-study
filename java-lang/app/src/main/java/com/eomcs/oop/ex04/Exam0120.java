@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Exam0120 {
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args)throws Exception {
     // java.util.Date 클래스는 날짜 데이터를 다루는 클래스이다.
     // => 이 클래스에는 날짜 데이터를 다룰 수 있는 다양한 메서드가 들어 있다.
 
@@ -14,7 +14,7 @@ public class Exam0120 {
     System.out.println(d1);
 
     // 년, 월, 일 값으로 날짜 인스턴스를 초기화시킨다.
-    Date d2 = new Date(122, 4, 3);
+    Date d2 = new Date(22, 4, 0);
     System.out.println(d2);
 
     // 1970년 1월 1일 0시 0분 0초부터 측정된 밀리초를 가지고 
