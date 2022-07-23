@@ -12,7 +12,6 @@ public class MemberList extends ObjectList {
   public Member get(int memberNo) {
     for (int i = 0; i < this.length; i++) {
       Member member = (Member) this.list[i];
-
       if (member.no == memberNo) {
         return member;
       }
@@ -42,6 +41,7 @@ public class MemberList extends ObjectList {
     if (memberIndex == -1) {
       return false;
     }
+
     return super.remove(memberIndex);
   }
 
@@ -49,17 +49,3 @@ public class MemberList extends ObjectList {
     return ++no;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

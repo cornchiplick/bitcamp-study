@@ -22,11 +22,16 @@ public class BoardList extends ObjectList {
   }
 
   // Board 인스턴스를 배열에 저장한다.
-  @Override
-  public void add(Object obj) {
-    Board board = (Board) obj;
-    board.no = nextNo();
+  //@Override
+  //  public void add(Object obj) {
+  //    Board board = (Board) obj;
+  //    board.no = nextNo();
+  //
+  //    super.add(board);
+  //  }
 
+  public void add(Board board) {
+    board.no = nextNo();
     super.add(board);
   }
 
