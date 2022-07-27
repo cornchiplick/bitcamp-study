@@ -1,51 +1,43 @@
 package com.bitcamp.board.dao;
 
 import com.bitcamp.board.domain.Member;
+import com.bitcamp.util.ObjectList;
 
 // 회원 목록을 관리하는 역할
 //
 public class MemberList extends ObjectList {
 
-  private int no = 0;
-
-  @Override
-  public Member get(int memberNo) {
-    for (int i = 0; i < this.length; i++) {
-      Member member = (Member) this.list[i];
-      if (member.no == memberNo) {
+  // 인덱스 대신 이메일로 회원 데이터를 찾을 수 있도록
+  // 메서드를 추가한다.
+  // 기존의 메서드와 같은 이름으로 지어서
+  // 메서드 호출할 때 일관되게 사용할 수 있다.
+  // => 오버로딩(Overloading)
+  public Member get(String email) {
+    for (int i = 0; i < size(); i++) {
+      Member member = (Member) get(i);
+      if (member.email.equals(email)) {
         return member;
       }
     }
     return null;
   }
 
-  @Override
-  public void add(Object obj) {
-    Member member = (Member) obj;
-    member.no = nextNo();
 
-    super.add(member);
-  }
+  // 여기에 @Overriding 이라고 써주면 remove 메서드에 빨간줄이 그어진다.
+  // 왜냐면 remove()는 Overriding한 것이 아니기 때문.(Overloading이다)
+  // 바로 이것이 Annotation
 
-  @Override
-  public boolean remove(int memberNo) {
-    int memberIndex = -1;
-    for (int i = 0; i < this.length; i++) {
-      Member member = (Member) this.list[i];
-      if (member.no == memberNo) {
-        memberIndex = i;
-        break;
+  // 인덱스 대신 이메일로 회원 데이터를 찾아 삭제하는 메서드.
+  // 수퍼 클래스로부터 상속 받은 메서드와 같은 일을 하며
+  // 메서드 이름도 같다. 오버로딩!
+
+  public boolean remove(String email) {
+    for (int i = 0; i < size(); i++) {
+      Member member = (Member) get(i);
+      if (member.email.equals(email)) {
+        return remove(i);
       }
     }
-
-    if (memberIndex == -1) {
-      return false;
-    }
-
-    return super.remove(memberIndex);
-  }
-
-  private int nextNo() {
-    return ++no;
+    return false;
   }
 }

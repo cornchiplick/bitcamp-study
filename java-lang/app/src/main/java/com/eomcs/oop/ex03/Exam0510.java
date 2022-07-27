@@ -16,7 +16,7 @@ public class Exam0510 {
     static boolean bool;
     static String str;
     static Date date;
-  } 
+  }
 
   public static void main(String[] args) {
 

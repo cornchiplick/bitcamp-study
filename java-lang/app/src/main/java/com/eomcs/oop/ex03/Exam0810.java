@@ -19,7 +19,7 @@ public class Exam0810 {
     //   a = 100;
     //   b = 200;
     // }
-  } 
+  }
 
   public static void main(String[] args) {
     A obj1 = new A();

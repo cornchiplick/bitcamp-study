@@ -24,7 +24,7 @@ public class Exam0910 {
       System.out.printf("명암(%d)\n", this.contrast);
       System.out.printf("해상도(%d x %d)\n", this.widthRes, this.heightRes);
       System.out.println("----------------------------------");
-    } 
+    }
   }
 
   public static void main(String[] args) {

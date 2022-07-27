@@ -1,76 +1,55 @@
 package com.eomcs.quiz.ex02.sol;
 
 // 출처: codefights.com
-// 한 줄에 버그가 있다. 고쳐라! 
+// 분수 배열에서 가장 큰 분수의 인덱스를 찾아라!
+// 예) 분자: 5, 2, 5
+//     분모: 6, 3, 4
+// 위 예에서 가장 큰 분모는 5/4를 가리키는 인덱스 2이다.
+// 
 
-/* n!(n 팩토리얼) 값을 조사하여 몇 개의 0으로 끝나는 지(trailing zeros) 개수를 리턴하라.
-예1) 10!의 값은 두 개의 0으로 끝난다.
-예2) 23!은 4개의 값으로 끝난다. (23!의 값은 4바이트를 초과하기 때문에 테스트하지 말아라!)
- */
 /* 원문
-Given an integer n, find the number of trailing zeros 
-in the decimal representation of n! 
-(the exclamation mark means factorial).
+Given a list of fractions find the largest one.
 
 Example
 
-for n = 10 output should be 2
+for numerators=[5, 2, 5], denominators=[6, 3, 4] output 
+should be 2 since 5/4 is the largest fraction
 
-[input] integer n
+[input] array.integer numerators
 
-a positive integer
+array of integers representing numerators of the fractions
+[input] array.integer denominators
+
+array of integers of the same length as numerators representing denominators 
+where the i-th fraction equals to numerators[i]/denominators[i]
 [output] integer
+
+index of the largest fraction assuming that none of the fractions are equal
  */
 //
 // [시간 복잡도]
-// - O(k) : k는 5^k <= n < 5^(k+1), n은 n!에서 n 값.
+// - O(n) : n은 배열의 길이
 //
 public class Test05 {
   public static void main(String[] args) {
-    System.out.println(factorialTrailingZeros(1) == 0);
-    System.out.println(factorialTrailingZeros(2) == 0);
-    System.out.println(factorialTrailingZeros(3) == 0);
-    System.out.println(factorialTrailingZeros(4) == 0);
-    System.out.println(factorialTrailingZeros(5) == 1);
-    System.out.println(factorialTrailingZeros(10) == 2);
-    System.out.println(factorialTrailingZeros(15) == 3);
-    System.out.println(factorialTrailingZeros(20) == 4);
-    System.out.println(factorialTrailingZeros(25) == 6);
-    System.out.println(factorialTrailingZeros(30) == 7);
+    System.out.println(maxFraction(
+        new int[]{5, 2, 5}, 
+        new int[]{6, 3, 4}) == 2);
 
-    //    for (int i = 1; i < 100; i++) {
-    //      System.out.printf("%d ==> %d, %d\n",
-    //          i, factorialTrailingZeros(i), factorialTrailingZeros2(i));
-    //    }
+    System.out.println(maxFraction(
+        new int[]{2, 4, 5, 16, 56}, 
+        new int[]{3, 5, 6, 22, 99}) == 2);
+
   }
 
-  static int factorialTrailingZeros(int n) {  
-    int result = 0;
-    int primeFactor = 5;
-    while (n >= primeFactor) {
-      result += n / primeFactor;
-      primeFactor *= 5;      
-    }
-    return result;
-  }
-
-  static int factorialTrailingZeros2(int n) {  
-    int result = 0;
-    for (int i = 5; i <= n; i += 5) {
-      int number = i;
-      while (number % 5 == 0) {
-        number /= 5;
-        result++;
+  static int maxFraction(int[] numerators, int[] denominators) {
+    int maxFractionIndex = 0;
+    for (int i = 1; i < numerators.length; i++) {
+      if (numerators[i] * denominators[maxFractionIndex] >
+      denominators[i] * numerators[maxFractionIndex]) {
+        maxFractionIndex = i;
       }
     }
-    return result;
+    return maxFractionIndex;
   }
 }
-
-// "Legendre's formula(= de Polignac's formula)" 수학식을 적용: 
-// => f(n) = |n/5| + |n/5^2| + |n/5^3| + ... + |n/5^k|,
-// => 5^(k+1) > n,
-// => 5^k <= n < 5^(k+1)
-// => k = log_5(n)
-//
-
