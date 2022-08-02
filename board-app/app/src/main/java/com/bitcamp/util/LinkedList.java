@@ -1,12 +1,16 @@
 package com.bitcamp.util;
 
-public class LinkedList {
+// LinkedList 클래스도 ObjectList 처럼 List 규격에 따라 만든다.
+// 규격이 같으면 두 객체를 서로 교체할 수 있다.
+//
+public class LinkedList implements List {
 
   private Node head;
   private Node tail;
   private int size;
 
-  public void append(Object value) {
+  @Override
+  public void add(Object value) {
     Node node = new Node(value);
 
     size++;
@@ -16,13 +20,13 @@ public class LinkedList {
       return;
     }
 
-
     tail.next = node;
     node.prev = tail;
     tail = node;
   }
 
-  public Object retrieve(int index) {
+  @Override
+  public Object get(int index) {
     // 인덱스의 유효 여부 검사
     if (index < 0 || index >= size) {
       throw new ListException("인덱스의 범위를 초과했습니다!");
@@ -40,7 +44,8 @@ public class LinkedList {
   }
 
 
-  public Object delete(int index) {
+  @Override
+  public Object remove(int index) {
     if (index < 0 || index >= size) {
       throw new ListException("인덱스의 범위를 초과했습니다!");
     }
@@ -84,11 +89,13 @@ public class LinkedList {
     return deleted;
   }
 
-  public int length() {
+  @Override
+  public int size() {
     return size;
   }
 
-  public Object[] getArray() {
+  @Override
+  public Object[] toArray() {
     Object[] arr = new Object[size];
 
     Node cursor = head;
