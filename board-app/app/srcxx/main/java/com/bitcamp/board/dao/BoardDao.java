@@ -1,8 +1,8 @@
 package com.bitcamp.board.dao;
 
+import java.util.LinkedList;
+import java.util.List;
 import com.bitcamp.board.domain.Board;
-import com.bitcamp.util.LinkedList;
-import com.bitcamp.util.List;
 
 // 게시글 목록을 관리하는 역할
 //
@@ -18,6 +18,7 @@ public class BoardDao {
   }
 
   public Board findByNo(int boardNo) {
+
     for (int i = 0; i < list.size(); i++) {
       Board board = list.get(i);
       if (board.no == boardNo) {
@@ -34,6 +35,7 @@ public class BoardDao {
         return list.remove(i) != null;
       }
     }
+
     return false;
   }
 
