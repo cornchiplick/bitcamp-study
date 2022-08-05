@@ -8,7 +8,7 @@ import com.bitcamp.util.List;
 //
 public class MemberDao {
 
-  List<Member> list = new LinkedList<>();
+  List<Member> list = new LinkedList<Member>();
 
   public void insert(Member member) {
     list.add(member);

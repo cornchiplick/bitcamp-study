@@ -105,7 +105,7 @@ public class LinkedList<E> extends AbstractList<E> {
     Object[] arr = new Object[size];
 
     // 노드를 따라 가면서 값을 꺼내 배열에 담는다.
-    Node cursor = head;
+    Node<E> cursor = head;
     for (int i = 0; i < size; i++) {
       arr[i] = cursor.value;
       cursor = cursor.next;
@@ -118,10 +118,13 @@ public class LinkedList<E> extends AbstractList<E> {
   @Override
   public E[] toArray(E[] arr) {
 
-    if (arr.length < size) {
-      arr = (E[]) Array.newInstance(arr.getClass().getComponentType(), size);
+    if (arr.length < size) { 
+      arr = (E[]) Array.newInstance(
+          arr.getClass().getComponentType(), // 레퍼런스 배열의 항목 타입
+          size  /* 배열의 개수*/);
     }
 
+    // 노드를 따라 가면서 값을 꺼내 배열에 담는다.
     Node<E> cursor = head;
     for (int i = 0; i < size; i++) {
       arr[i] = cursor.value;
