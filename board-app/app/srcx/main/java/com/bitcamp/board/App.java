@@ -25,7 +25,7 @@ public class App {
           new BoardHandler("reading.data"), // 독서록
           new BoardHandler("visit.data"), // 방명록
           new BoardHandler("notice.data"), // 공지사항
-          new BoardHandler("daily.data"), // 일기장
+          new BoardHandler("diary.data"), // 일기장
           new MemberHandler("member.data") // 회원
       };
 
@@ -37,8 +37,11 @@ public class App {
 
       loop: while (true) {
 
-        printTitle();
+        // 메인 메뉴 출력
+        System.out.printf("%s:\n", breadcrumbMenu);
+
         printMenus(menus);
+
         System.out.println();
 
         try {
@@ -68,14 +71,13 @@ public class App {
       } // while
 
       Prompt.close();
-
     } catch (Exception e) {
       // 더이상 애플리케이션을 계속 실행할 수 없는 상황일 때,
       // (main() 메서드까지 예외 보고가 올라 왔다는 것은 계속 실행할 수 없는 상태라는 뜻이다)
       // 사용자에게 간단한 예외 메시지를 남기고
       // 필요하다면 로그 파일에 오류 기록을 남기고,
       // 실행을 종료한다.
-      System.out.printf("실행 오류 발생! - %s:%s\n", 
+      System.out.printf("실행 오류 발생! - %s:%s\n",
           e.getClass().getName(), 
           e.getMessage() != null ? e.getMessage() : "");
     }
@@ -94,17 +96,6 @@ public class App {
     for (int i = 0; i < menus.length; i++) {
       System.out.printf("  %d: %s\n", i + 1, menus[i]);
     }
-  }
-
-  protected static void printTitle() {
-    StringBuilder builder = new StringBuilder();
-    for (String title : App.breadcrumbMenu) {
-      if (!builder.isEmpty()) {
-        builder.append(" > ");
-      }
-      builder.append(title);
-    }
-    System.out.printf("%s:\n", builder.toString());
   }
 }
 
