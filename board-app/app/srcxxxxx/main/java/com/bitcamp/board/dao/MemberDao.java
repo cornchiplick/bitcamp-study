@@ -23,7 +23,8 @@ public class MemberDao {
     try (BufferedReader in = new BufferedReader(new FileReader(filename))) {
       String str;
       while ((str = in.readLine()) != null) {
-        list.add(Member.create(str));
+        Member member = Member.create(str);
+        list.add(member);
       }
     }
   }
