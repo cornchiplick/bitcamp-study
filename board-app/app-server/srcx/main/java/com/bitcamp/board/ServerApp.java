@@ -15,7 +15,7 @@ public class ServerApp {
         // => 클라이언트 연결을 관리할 객체를 준비한다.
         ServerSocket serverSocket = new ServerSocket(8888);) {
 
-      System.out.println("서버 소켓 준비 완료!");
+      System.out.println("서버 소켓 준비 완료");
 
       try (
           // 클라이언트의 연결을 기다림
@@ -25,14 +25,14 @@ public class ServerApp {
           Socket socket = serverSocket.accept();
 
           // 클라이언트와 데이터를 주고 받는다.
-          // => 클라이언트가 보낸 데이터를 읽을 때 사용할 도구를 준비한다.
-          // => 데이터를 읽을 때 primitive type 또는 String 타입의 값을 
+          // 클라이언트가 보낸 데이터를 읽을 떄 사용할 도구를 준비한다.
+          // => 데이터를 읽을 때 primitive type 또는 String 타입의 값을
           //    보다 손쉽게 읽을 수 있도록 기존의 입력 도구에 보조 도구(decorator)붙여 사용한다.
           DataInputStream in = new DataInputStream(socket.getInputStream());
 
 
           // => 클라이언트로 데이터를 보낼 때 사용할 도구를 준비한다.
-          // => 데이터를 출력할 때 primitive type 또는 String 타입의 값을 
+          // => 데이터를 출력할 때 primitive type 또는 String 타입의 값을
           //    보다 손쉽게 출력 할 수 있도록 기존의 출력 도구에 보조 도구(decorator)붙여 사용한다.
           DataOutputStream out = new DataOutputStream(socket.getOutputStream());) {
 
@@ -63,15 +63,16 @@ public class ServerApp {
             default:
               out.writeUTF("fail");
           }
-        } 
+        }
 
         System.out.println("클라이언트와 연결을 끊었음!");
       } // 안쪽 try
 
     } catch (Exception e) {
       e.printStackTrace();
-    } // 바깥 쪽 try 
+    } // 바깥 쪽 try
 
     System.out.println("서버 종료!");
   }
+
 }

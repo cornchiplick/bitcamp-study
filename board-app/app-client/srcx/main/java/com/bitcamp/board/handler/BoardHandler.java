@@ -13,7 +13,7 @@ public class BoardHandler extends AbstractHandler {
   private DataInputStream in;
   private DataOutputStream out;
 
-  public BoardHandler(String dataName, DataInputStream in, DataOutputStream out) {
+  public BoardHandler(String dataNsame, DataInputStream in, DataOutputStream out) {
 
     // 수퍼 클래스의 생성자를 호출할 때 메뉴 목록을 전달한다.
     super(new String[] {"목록", "상세보기", "등록", "삭제", "변경"});
