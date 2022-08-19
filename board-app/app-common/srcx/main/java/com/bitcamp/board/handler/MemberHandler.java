@@ -4,19 +4,25 @@
 package com.bitcamp.board.handler;
 
 import java.util.Date;
-import com.bitcamp.board.dao.MemberDaoProxy;
+import com.bitcamp.board.dao.MemberDao;
 import com.bitcamp.board.domain.Member;
 import com.bitcamp.handler.AbstractHandler;
 import com.bitcamp.util.Prompt;
 
 public class MemberHandler extends AbstractHandler {
 
-  MemberDaoProxy memberDao;
+  private MemberDao memberDao;
 
-  public MemberHandler(String dataName, String ip, int port) {
+  public MemberHandler(String filename) {
     super(new String[] {"목록", "상세보기", "등록", "삭제", "변경"});
+    memberDao = new MemberDao(filename);
 
-    memberDao = new MemberDaoProxy(dataName, ip, port);
+    try {
+      memberDao.load();
+    } catch (Exception e) {
+      System.out.printf("%s 파일 로딩 중 오류 발생!\n", filename);
+      //      e.printStackTrace();
+    }
   }
 
   @Override
@@ -34,26 +40,22 @@ public class MemberHandler extends AbstractHandler {
     }
   }
 
-  private void onList() throws Exception {
-    Member[] members = memberDao.findAll();
-
-    if (members == null) {
-      System.out.println("목록을 가져오는데 실패했습니다!");
-      return;
-    }
-
+  private void onList() {
     System.out.println("이메일 이름");
+
+    Member[] members = this.memberDao.findAll();
 
     for (Member member : members) {
       System.out.printf("%s\t%s\n",
           member.email, member.name);
     }
+
   }
 
-  private void onDetail() throws Exception {
+  private void onDetail() {
     String email = Prompt.inputString("조회할 회원 이메일? ");
 
-    Member member = memberDao.findByEmail(email);
+    Member member = this.memberDao.findByEmail(email);
 
     if (member == null) {
       System.out.println("해당 이메일의 회원이 없습니다!");
@@ -74,17 +76,17 @@ public class MemberHandler extends AbstractHandler {
     member.password = Prompt.inputString("암호? ");
     member.createdDate = System.currentTimeMillis();
 
-    if (memberDao.insert(member)) {
-      System.out.println("회원을 등록했습니다.");
-    } else {
-      System.out.println("회원 등록에 실패했습니다!");
-    }
+    this.memberDao.insert(member);
+    memberDao.save();
+
+    System.out.println("회워을 등록했습니다.");
   }
 
   private void onDelete() throws Exception {
     String email = Prompt.inputString("삭제할 회원 이메일? ");
 
     if (memberDao.delete(email)) {
+      memberDao.save();
       System.out.println("삭제하였습니다.");
     } else {
       System.out.println("해당 이메일의 회원이 없습니다!");
@@ -94,24 +96,22 @@ public class MemberHandler extends AbstractHandler {
   private void onUpdate() throws Exception {
     String email = Prompt.inputString("변경할 회원 이메일? ");
 
-    Member member = memberDao.findByEmail(email);
+    Member member = this.memberDao.findByEmail(email);
 
     if (member == null) {
       System.out.println("해당 이메일의 회원이 없습니다!");
       return;
     }
 
-    member.name = Prompt.inputString("이름?(" + member.name + ") ");
+    String newName = Prompt.inputString("이름?(" + member.name + ") ");
+    String newEmail = Prompt.inputString(String.format("이메일?(%s) ", member.email));
 
     String input = Prompt.inputString("변경하시겠습니까?(y/n) ");
-
     if (input.equals("y")) {
-      if (memberDao.update(member)) {
-        System.out.println("변경했습니다.");
-      } else {
-        System.out.println("변경 실패입니다.");
-      }
-
+      member.name = newName;
+      member.email = newEmail;
+      memberDao.save();
+      System.out.println("변경했습니다.");
     } else {
       System.out.println("변경 취소했습니다.");
     }
