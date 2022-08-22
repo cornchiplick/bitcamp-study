@@ -12,7 +12,7 @@ public class Sender2 {
 
     Scanner keyScan = new Scanner(System.in);
 
-    Socket socket = new Socket("192.168.0.250", 8888);
+    Socket socket = new Socket("192.168.0.12", 8888);
 
     PrintStream out = new PrintStream(socket.getOutputStream());
     Scanner in = new Scanner(socket.getInputStream());
@@ -30,6 +30,7 @@ public class Sender2 {
     out.close();
     socket.close();
     keyScan.close();
+
   }
 
 }
