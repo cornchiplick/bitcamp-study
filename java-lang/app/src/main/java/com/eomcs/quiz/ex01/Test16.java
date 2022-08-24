@@ -1,12 +1,11 @@
-package com.eomcs.quiz.ex01;
 // 출처: codefights.com
-// 
+//
 // 주어진 년도가 윤년인지 아닌지 검사하라!
-// 
+//
 // 예)
 //    윤년: 1988, 1992, 1996, 1600, 2000, 2400
 //    윤년아님: 1700, 1800, 1900, 2100, 2200, 2300, 2500, 2600
-// 
+//
 /*
 Year is leap if its number is divisible by 4 and isn't divisible by 100 or if its number is divisible by 400. 
 Determine if a given year is leap or not.
@@ -33,8 +32,16 @@ public class Test16 {
     System.out.println(leapYear(2200) == false);
   }
 
+  // 이 메서드를 완성하시오!
   static boolean leapYear(int year) {
-    // 이 메서드를 완성하시오!
+    if (year % 400 == 0) {
+      return true;
+    } else if (year % 100 == 0) {
+      return false;
+    } else if ((year & 3) == 0) {
+      return true;
+    }
+
     return false;
   }
 }

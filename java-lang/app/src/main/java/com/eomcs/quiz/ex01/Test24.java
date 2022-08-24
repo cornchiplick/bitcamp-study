@@ -1,16 +1,15 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
+//
 // 두 개의 정수 L과 R이 주어질 때 다음 조건을 만족하는 (A,B)의 개수를 구하라!
-//   L <= A <= R, 
-//   L <= B <= R, 
+//   L <= A <= R,
+//   L <= B <= R,
 //   A = B = 1 가능
 //   A^3 == B^2 이다.
 //
-// 예) 
+// 예)
 //   equationSolutions(1, 4) ==> 1
 //   equationSolutions(1, 8) ==> 2
-// 
+//
 //
 /*
 Given integers L and R, 
@@ -41,9 +40,18 @@ public class Test24 {
     System.out.println(equationSolutions(1, 8) == 2);
   }
 
+  // 이 메서드를 완성하시오!
   static int equationSolutions(int L, int R) {
     int result = 0;
-    // 이 메서드를 완성하시오!
+
+    for (int i = L; i <= R; i++) {
+      for (int j = L; j <= R; j++) {
+        if (i * i * i == j * j) {
+          result++;
+        }
+      }
+    }
+
     return result;
   }
 }

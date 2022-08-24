@@ -1,14 +1,13 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
-// 테니스 경기에서 세트의 종료 조건은 
+//
+// 테니스 경기에서 세트의 종료 조건은
 // 한 선수가 6게임을 이기고 다른 선수가 5게임 미만 일 때 종료한다.
-// 만약 5대 5 듀스의 상황이라면 한 선수가 7게임을 이길 때 종료한다. 
+// 만약 5대 5 듀스의 상황이라면 한 선수가 7게임을 이길 때 종료한다.
 // 양 선수의 이긴 게임 수를 보고 종료 조건인지 검사하라!
 //
 // 형식:
 //   tennisSet(이긴게임수1, 이긴게임수2)
-// 예) 
+// 예)
 //   tennisSet(3, 6) ==> true
 //   tennisSet(8, 5) ==> false
 //   tennisSet(6, 5) ==> false
@@ -45,8 +44,16 @@ public class Test32 {
     System.out.println(tennisSet(6, 5) == false);
   }
 
+  // 이 메서드를 완성하시오!
   static boolean tennisSet(int score1, int score2) {
-    // 이 메서드를 완성하시오!
+    if (((score1 == 6) && (score2 < 5)) || ((score1 < 5) && (score2 == 6))) {
+      return true;
+    } else if (
+      ((score1 == 7) && (score2 == 5)) || ((score1 == 5) && (score2 == 7))
+    ) {
+      return true;
+    }
+
     return false;
   }
 }

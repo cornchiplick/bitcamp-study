@@ -1,8 +1,7 @@
-package com.eomcs.quiz.ex01;
 // 출처: codefights.com
-// 
+//
 // 주어진 문자열이 반복 문자열인지 검사하라!
-// 예) 
+// 예)
 //   "abcdeabcde"   --> true
 //   "qqq"          --> false
 //   "2w2www        --> false
@@ -37,16 +36,18 @@ public class Test15 {
     System.out.println(isTandemRepeat("2w2www")); // false
   }
 
+  // 이 메서드를 완성하시오!
   static boolean isTandemRepeat(String inputString) {
-    // 이 메서드를 완성하시오!
+    if ((inputString.length() & 1) == 1) {
+      return false;
+    }
+
+    int length = inputString.length() / 2;
+    for (int i = 0; i < length; i++) {
+      if (inputString.charAt(i) != (inputString.charAt(i + length))) {
+        return false;
+      }
+    }
     return true;
   }
 }
-
-
-
-
-
-
-
-

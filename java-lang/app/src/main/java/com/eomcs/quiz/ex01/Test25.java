@@ -1,14 +1,13 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
+//
 // 정수의 자릿수가 주어질 때,
 // 앞자리가 0이 아닌 가장 작은 정수의 값을 구하라.
 //
-// 예) 
+// 예)
 //   smallestNumber(1) ==> 0
 //   smallestNumber(2) ==> 10
 //   smallestNumber(3) ==> 100
-// 
+//
 //
 /*
 The algorithm should return the smallest non-negative integer of N digits length.
@@ -35,8 +34,17 @@ public class Test25 {
     System.out.println(smallestNumber(4) == 1000);
   }
 
+  // 이 메서드를 완성하시오!
   static int smallestNumber(int n) {
-    // 이 메서드를 완성하시오!
-    return 0;
+    if (n == 1) {
+      return 0;
+    }
+
+    int result = 1;
+    for (int i = 2; i <= n; i++) {
+      result *= 10;
+    }
+
+    return result;
   }
 }

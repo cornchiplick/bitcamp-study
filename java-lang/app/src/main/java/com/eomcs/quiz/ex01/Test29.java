@@ -1,13 +1,12 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
+//
 // 양의 정수 값이 주어질 때, 가장 큰 자릿수를 알아내라!
 //
 // 형식:
 //   maxDigit(정수값)
-// 예) 
+// 예)
 //   maxDigit(5874) ==> 8
-// 
+//
 //
 /*
 Find the largest digit of the given number.
@@ -30,9 +29,17 @@ public class Test29 {
     System.out.println(maxDigit(5178) == 8);
   }
 
+  // 이 메서드를 완성하시오.
   static int maxDigit(int n) {
     int result = 0;
-    // 이 메서드를 완성하시오.
+
+    while (n != 0) {
+      if (result <= (n % 10)) {
+        result = n % 10;
+      }
+      n /= 10;
+    }
+
     return result;
   }
 }

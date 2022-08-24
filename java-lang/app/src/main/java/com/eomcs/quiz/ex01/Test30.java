@@ -1,19 +1,18 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
+//
 // 마을에 n개의 집이 있다.
 // 각 집은 1번부터 n번까지 순서대로 번호가 붙어 있으며
-// 원으로 된 도로를 따라 시계 방향으로 세워져 있다.      
-// 한 집에서 옆집으로 가는데 1분이 소요된다. 
-// 1번 집에서 출발하여 주어진 순서로 집을 방문하는데 
+// 원으로 된 도로를 따라 시계 방향으로 세워져 있다.
+// 한 집에서 옆집으로 가는데 1분이 소요된다.
+// 1번 집에서 출발하여 주어진 순서로 집을 방문하는데
 // 걸리는 최소 시간을 구하라!
-// 
+//
 //
 // 형식:
 //   visitsOnCircularRoad(집 개수, 방문할 집 번호을 나열한 배열)
-// 예) 
+// 예)
 //   visitsOnCircularRoad(4, [1, 3, 2, 3, 1]) = 6
-// 
+//
 //
 /*
 There are N houses in a village on a circular road numbered from 1 to N 
@@ -38,12 +37,32 @@ number of houses, positive integer
 public class Test30 {
 
   public static void main(String[] args) {
-    System.out.println(visitsOnCircularRoad(4, new int[] {1, 3, 2, 3, 1}) == 6);
-    System.out.println(visitsOnCircularRoad(6, new int[] {1, 3, 2, 6, 5}) == 6);
+    System.out.println(
+      visitsOnCircularRoad(4, new int[] { 1, 3, 2, 3, 1 }) == 6
+    );
+    System.out.println(
+      visitsOnCircularRoad(6, new int[] { 1, 3, 2, 6, 5 }) == 6
+    );
+    System.out.println(
+      visitsOnCircularRoad(5, new int[] { 1, 3, 2, 5, 1 }) == 6
+    );
   }
 
+  // 이 메서드를 완성하시오!
   static int visitsOnCircularRoad(int N, int[] visitsOrder) {
-    // 이 메서드를 완성하시오!
-    return 0;
+    int ans = 0;
+
+    for (int i = 1; i < visitsOrder.length; i++) {
+      if ((N >> 1) >= (Math.abs(visitsOrder[i] - visitsOrder[i - 1]))) {
+        ans += Math.abs(visitsOrder[i] - visitsOrder[i - 1]);
+      } else {
+        ans +=
+          N -
+          Math.max(visitsOrder[i], visitsOrder[i - 1]) +
+          Math.min(visitsOrder[i], visitsOrder[i - 1]);
+      }
+    }
+
+    return ans;
   }
 }

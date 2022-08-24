@@ -1,5 +1,3 @@
-package com.eomcs.quiz.ex01;
-
 // 출처: codefights.com
 //
 // 원과 점이 주어질 때, 점이 원 안에 있는지를 검사하라!
@@ -55,8 +53,10 @@ public class Test12 {
     System.out.println(isInsideTheCircle(-1, -1, 0, 0, 1) == false);
   }
 
+  // 이 메서드를 완성하시오!
   static boolean isInsideTheCircle(int xa, int ya, int xc, int yc, int rc) {
-    // 이 메서드를 완성하시오!
+
+    
     return false;
   }
 }

@@ -1,6 +1,5 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
+//
 // 주어진 수 보다 큰 수 중에서
 // 한 개 이상의 0으로 끝나는 가장 작은 수를 구하라!
 // 예)
@@ -30,15 +29,16 @@ public class Test17 {
     System.out.println(nearestRoundNumber(99722) == 99730);
   }
 
+  // 이 메서드를 완성하시오!
   static int nearestRoundNumber(int value) {
-    // 이 메서드를 완성하시오!
+    if (value % 10 == 0) {
+      value += 10;
+    } else {
+      value /= 10;
+      value += 1;
+      value *= 10;
+    }
+
     return value;
   }
 }
-
-
-
-
-
-
-

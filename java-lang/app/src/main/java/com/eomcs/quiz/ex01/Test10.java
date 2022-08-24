@@ -1,7 +1,5 @@
-package com.eomcs.quiz.ex01;
-
 // 출처: codefights.com
-// 
+//
 // 원을 이루는 n 개의 숫자가 있다.
 // 0 번째 숫자와 n-1 번째 숫자가 서로 이웃하고 있을 때
 // 첫 번째 수와 마주하는 수를 알아내시오!
@@ -9,7 +7,7 @@ package com.eomcs.quiz.ex01;
 // 예) n = 10 : n은 짝수이며, 원을 이루는 숫자의 개수이다.
 //     firstNumber = 2: 첫 번째 숫자이다.
 //     결과: 7
-//    
+//
 /*
 Consider integer numbers from 0 to n-1 written down along 
 the circle in such a way that the distance 
@@ -38,12 +36,11 @@ an integer from 0 to n-1
 public class Test10 {
 
   public static void main(String[] args) {
-    System.out.println(circleOfNumbers(10, 2) == 7); 
-
+    System.out.println(circleOfNumbers(10, 2));
   }
 
+  // 이 메서드를 완성하시오!
   static int circleOfNumbers(int n, int firstNumber) {
-    // 이 메서드를 완성하시오!
-    return 0;
+    return firstNumber + (n >>> 1);
   }
 }

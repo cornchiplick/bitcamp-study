@@ -1,7 +1,5 @@
-package com.eomcs.quiz.ex02;
-
 // copyright by codefights.com
-// 
+//
 // 양의 정수가 주어질 때
 // 오직 4와 7로만 이루어진 수인지 검사하라!
 // 예)
@@ -20,7 +18,7 @@ true if n is a lucky number, false otherwise
  */
 //
 // [시간 복잡도]
-// - ? 
+// - ?
 //
 public class Test10 {
 
@@ -29,9 +27,15 @@ public class Test10 {
     System.out.println(isLuckyNumber(4754) == false);
   }
 
+  // 이 메서드를 완성하시오!
   static boolean isLuckyNumber(int n) {
-    // 이 메서드를 완성하시오!
+    while (n != 0) {
+      if ((n % 10 != 4) && (n % 10 != 7)) {
+        return false;
+      }
+      n /= 10;
+    }
+
     return true;
   }
-
 }

@@ -1,5 +1,3 @@
-package com.eomcs.quiz.ex01;
-
 //출처: codefights.com
 //
 // k의 배수 중에서 n보다 크지 않은 값을 모두 더한 결과는 무엇인가?
@@ -7,7 +5,7 @@ package com.eomcs.quiz.ex01;
 //   n과 k는 양의 정수이다.
 //
 // 예) sumOfMultiples(7, 2) = 2 + 4 + 6 = 12
-//   
+//
 //
 /*
 For given n and k find the sum of all multiples of k 
@@ -30,17 +28,22 @@ positive integer
 // - ?
 //
 public class Test13 {
+
   public static void main(String[] args) {
     System.out.println(sumOfMultiples(7, 2) == 12);
   }
 
+  // 이 메서드를 완성하시오!
   static int sumOfMultiples(int n, int k) {
     int result = 0;
-    // 이 메서드를 완성하시오!
+    for (int i = 0;; i++) {
+      if (i * k > n) {
+        break;
+      }
+
+      result += i * k;
+    }
+
     return result;
   }
 }
-
-
-
-

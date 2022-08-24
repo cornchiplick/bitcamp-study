@@ -1,11 +1,9 @@
-package com.eomcs.quiz.ex02;
-
 // 출처: codefights.com
 // 분수 배열에서 가장 큰 분수의 인덱스를 찾아라!
 // 예) 분자: 5, 2, 5
 //     분모: 6, 3, 4
 // 위 예에서 가장 큰 분모는 5/4를 가리키는 인덱스 2이다.
-// 
+//
 
 /* 원문
 Given a list of fractions find the largest one.
@@ -31,20 +29,32 @@ index of the largest fraction assuming that none of the fractions are equal
 // - ?
 //
 public class Test05 {
+
   public static void main(String[] args) {
-    System.out.println(maxFraction(
-        new int[]{5, 2, 5}, 
-        new int[]{6, 3, 4}) == 2);
+    System.out.println(
+      maxFraction(new int[] { 5, 2, 5 }, new int[] { 6, 3, 4 }) == 2
+    );
 
-    System.out.println(maxFraction(
-        new int[]{2, 4, 5, 16, 56}, 
-        new int[]{3, 5, 6, 22, 99}) == 2);
-
+    System.out.println(
+      maxFraction(
+        new int[] { 2, 4, 5, 16, 56 },
+        new int[] { 3, 5, 6, 22, 99 }
+      ) ==
+      2
+    );
   }
 
+  // 이 메서드를 완성하시오!
   static int maxFraction(int[] numerators, int[] denominators) {
     int maxFractionIndex = 0;
-    // 이 메서드를 완성하시오!
+    float max = 0;
+    for (int i = 0; i < numerators.length; i++) {
+      if ((float) numerators[i] / (float) denominators[i] >= max) {
+        max = (float) numerators[i] / (float) denominators[i];
+        maxFractionIndex = i;
+      }
+    }
+
     return maxFractionIndex;
   }
 }

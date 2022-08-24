@@ -1,5 +1,3 @@
-package com.eomcs.quiz.ex02;
-
 import java.util.Arrays;
 
 // copyright by codefights.com
@@ -8,7 +6,7 @@ import java.util.Arrays;
 //
 // 형식:
 //   swapArrayHalves(정수 배열)
-// 예) 
+// 예)
 //   swapArrayHalves(new int[] {1, 3, 2, 1}) ==> [2, 1, 1, 3]
 //
 //
@@ -33,13 +31,23 @@ array consisting of last L/2 elements of the given inputArray followed by its fi
 public class Test12 {
 
   public static void main(String[] args) {
-    System.out.println(Arrays.compare(
-        swapArrayHalves(new int[] {1, 3, 2, 1}), 
-        new int[] {2, 1, 1, 3}) == 0);
+    System.out.println(
+      Arrays.compare(
+        swapArrayHalves(new int[] { 1, 3, 2, 1 }),
+        new int[] { 2, 1, 1, 3 }
+      ) ==
+      0
+    );
   }
 
+  // 이 메서드를 완성하시오!
   static int[] swapArrayHalves(int[] inputArray) {
-    // 이 메서드를 완성하시오!
-    return new int[] {2, 1, 1, 3};
+    for (int i = 0; i < inputArray.length / 2; i++) {
+      int temp = inputArray[i];
+      inputArray[i] = inputArray[i + inputArray.length / 2];
+      inputArray[i + inputArray.length / 2] = temp;
+    }
+
+    return inputArray;
   }
 }

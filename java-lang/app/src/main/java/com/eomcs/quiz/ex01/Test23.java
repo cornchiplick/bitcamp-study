@@ -1,8 +1,7 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
+//
 // 문자열에 포함된 숫자의 합을 구하라.
-// 예) 
+// 예)
 //   sumUpNumbers("2 apples, 12 oranges") ==> 5
 //
 /*
@@ -18,7 +17,7 @@ sumUpNumbers("2 apples, 12 oranges") = 5
  */
 //
 // [시간 복잡도]
-// - ? 
+// - ?
 //
 public class Test23 {
 
@@ -26,9 +25,14 @@ public class Test23 {
     System.out.println(sumUpDigits("2 apples, 12 oranges") == 5);
   }
 
+  // 이 메서드를 완성하시오!
   static int sumUpDigits(String inputString) {
     int answer = 0;
-    // 이 메서드를 완성하시오!
+    for (int i = 0; i < inputString.length(); i++) {
+      if (0 < inputString.charAt(i) - '0' && inputString.charAt(i) - '0' <= 9) {
+        answer += inputString.charAt(i) - '0';
+      }
+    }
     return answer;
   }
 }

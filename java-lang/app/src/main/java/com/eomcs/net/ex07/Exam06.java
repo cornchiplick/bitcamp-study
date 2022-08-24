@@ -13,6 +13,8 @@ public class Exam06 {
     //      /루트디렉토리/디렉토리 또는 파일 경로 (Linux/macOS/Unix)
     URL url = new URL("file:///Users/eomjinyoung/git/bitcamp-study/Hello.java");
 
+    // 윈도우는 file다음에 c:/ 잇어야
+
     // URL 분석
     System.out.printf("프로토콜: %s\n", url.getProtocol());
     System.out.printf("서버주소: %s\n", url.getHost());

@@ -1,16 +1,14 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
-// 정수 l과 r 사이의 있는 두 수를 더했을 때 n이 될 수 있는 
+//
+// 정수 l과 r 사이의 있는 두 수를 더했을 때 n이 될 수 있는
 // 경우가 모두 몇 가지인지 찾아라!
 // 단, n, l, r 은 모두 양의 정수이다.
-// 두 수 A, B는 다음 조건을 만족해야 한다.
-//    l <= A <= B <= r
+//
 // 형식)
 //   countSumOfTwoRepresentations(n, l, r)
-// 예) 
+// 예)
 //   countSumOfTwoRepresentations(6, 2, 4) == 2
-// 
+//
 //
 /*
 Given integers n, l and r, find the number of ways 
@@ -43,9 +41,18 @@ public class Test26 {
     System.out.println(countSumOfTwoRepresentations(6, 1, 5) == 3);
   }
 
+  // 이 메서드를 완성하시오!
   static int countSumOfTwoRepresentations(int n, int l, int r) {
     int result = 0;
-    // 이 메서드를 완성하시오!
+
+    for (int i = l; i <= r; i++) {
+      for (int j = i; j <= r; j++) {
+        if (i + j == n) {
+          result++;
+        }
+      }
+    }
+
     return result;
   }
 }

@@ -1,10 +1,9 @@
-package com.eomcs.quiz.ex01;
 // copyright by codefights.com
-// 
+//
 // 더하기 연산자를 이용하여 사각형의 면적을 구하라!
 // 예)
 //    rectangleArea(2, 3) = 6
-// 
+//
 /*
 Find the area of a rectangle with given sides.
 
@@ -31,8 +30,13 @@ public class Test21 {
     System.out.println(rectangleArea(3, 2) == 6);
   }
 
+  // 이 메서드를 완성하시오!
   static int rectangleArea(int a, int b) {
-    // 이 메서드를 완성하시오!
-    return 0;
+    int result = 0;
+    for (int i = 0; i < b; i++) {
+      result += a;
+    }
+
+    return result;
   }
 }
