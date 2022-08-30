@@ -8,24 +8,12 @@ public class Main {
 
     Scanner in = new Scanner(System.in);
 
-    String str = in.next();
+    int N = in.nextInt();
 
-    while (!str.equals("0")) {
+    int[] arr = new int[N];
 
-      checkno(in.next());
 
-    }
 
   }
 
-
-
-  static void checkno(String num) {
-
-    for (int i = 0; i < num.length(); i++) {
-
-
-    }
-
-  }
 }
