@@ -3,7 +3,7 @@ package com.eomcs.quiz.bjquiz;
 public class Main {
 
   public static void main(String[] args) {
-
+    System.out.println("test");
     /*
     Scanner in = new Scanner(System.in);
 
