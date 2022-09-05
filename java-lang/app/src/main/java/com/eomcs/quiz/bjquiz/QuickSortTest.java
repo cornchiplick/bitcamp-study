@@ -18,31 +18,33 @@ public class QuickSortTest {
   }
 
   static void quickSort(int[] arr, int start, int end) {
+
+    if (start >= end) {
+      return;
+    }
+
+    int pivot = partition(arr, start, end);
+
+    quickSort(arr, start, pivot);
+    quickSort(arr, pivot+1, end);
+
+  }
+
+  static void partition(int[] arr, int start, int end) {
     int pivot = arr[(start + end) / 2];
 
-    while (start <= end) {
+    while (true) {
 
-      while (arr[start] < pivot) {start++;}
-      while (pivot < arr[end]) {end--;}
-
-      if (start <= end) {
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
+      while (arr[start] <= pivot) {
+        start++;
       }
+
+      while (arr[end] >= pivot) {
+        end--;
+      }
+
     }
 
-    int temp2 = start;
-    start = end;
-    end = temp2;
-
-    while (pivot - 1 != 0) {
-      quickSort(arr, 0, pivot - 1);
-    }
-
-    while (arr.length - pivot - 2 != 0) {
-      quickSort(arr, pivot, arr.length - 1);
-    }
   }
 
 
