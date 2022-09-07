@@ -2,7 +2,7 @@ package com.eomcs.quiz.bjquiz;
 
 import java.util.Scanner;
 
-public class Main {
+public class bj2920 {
 
   public static void main(String[] args) {
 
