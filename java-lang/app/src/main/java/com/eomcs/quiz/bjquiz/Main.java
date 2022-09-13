@@ -1,5 +1,7 @@
 package com.eomcs.quiz.bjquiz;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -7,43 +9,33 @@ public class Main {
   public static void main(String[] args) {
 
     Scanner in = new Scanner(System.in);
+    int N = in.nextInt();
+    String[] arr = new String[N];
 
-    int[] arr = new int[8];
-
-    for (int i = 0; i < 8; i++) {
-      arr[i] = in.nextInt();
+    for (int i = 0; i < N; i++) {
+      arr[i] = in.next();
     }
 
-    switch (arr[0]) {
-      case 1 : {
-        for (int i = 0; i < 7; i++) {
-          if (arr[i] != arr[i+1]-1) {
-            System.out.println("mixed");
-            break;
-          }
-          if (i == 6) {
-            System.out.println("ascending");
-          }
+    Arrays.sort(arr, new Comparator<String>() {
+      @Override
+      public int compare(String s1, String s2) {
+        if(s1.length() == s2.length()) {
+          return s1.compareTo(s2);
+        }else {
+          return s1.length() - s2.length();
         }
-      } // c1
-      break;
 
-      case 8 : {
-        for (int i = 0; i < 7; i++) {
-          if (arr[i] != arr[i+1]+1) {
-            System.out.println("mixed");
-            break;
-          }
-          if (i == 6) {
-            System.out.println("descending");
-          }
-        }
-      } // c8
-      break;
+      }
+    });
 
-      default : System.out.println("mixed");
+    System.out.println(arr[0]);
+    for(int i = 1; i < N; i++) {
+      if (!arr[i].equals(arr[i - 1])) {
+        System.out.println(arr[i]);
+      }
+    }
 
-    } // switch
+
   }
-
 }
+
