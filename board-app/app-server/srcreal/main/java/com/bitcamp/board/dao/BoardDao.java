@@ -14,6 +14,7 @@ public interface BoardDao {
   int delete(int no) throws Exception;
 
   List<Board> findAll() throws Exception;
+
 }
 
 

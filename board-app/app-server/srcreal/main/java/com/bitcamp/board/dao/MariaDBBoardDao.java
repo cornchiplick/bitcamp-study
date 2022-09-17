@@ -12,7 +12,7 @@ public class MariaDBBoardDao implements BoardDao {
   Connection con;
 
   //DAO가 사용할 의존 객체 Connection을 생성자의 파라미터로 받는다.
-  public MariaDBBoardDao(Connection con) {
+  public MariaDBBoardDao(Connection con)  {
     this.con = con;
   }
 
@@ -27,10 +27,12 @@ public class MariaDBBoardDao implements BoardDao {
     }
   }
 
+
+
   @Override
   public Board findByNo(int no) throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
-        "select bno,title,cont,mno,cdt,vw_cnt from app_board where bno=" + no);
+        "select bno, title, cont, mno, cdt, vw_cnt from app_board where bno=" + no);
         ResultSet rs = pstmt.executeQuery()) {
 
       if (!rs.next()) {
@@ -49,6 +51,7 @@ public class MariaDBBoardDao implements BoardDao {
     }
   }
 
+
   @Override
   public int update(Board board) throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
@@ -62,6 +65,7 @@ public class MariaDBBoardDao implements BoardDao {
     }
   }
 
+
   @Override
   public int delete(int no) throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement("delete from app_board where bno=?")) {
@@ -71,10 +75,11 @@ public class MariaDBBoardDao implements BoardDao {
     }
   }
 
+
   @Override
   public List<Board> findAll() throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
-        "select bno,title,mno,cdt,vw_cnt from app_board");
+        "select bno, title, mno, cdt, vw_cnt from app_board");
         ResultSet rs = pstmt.executeQuery()) {
 
       ArrayList<Board> list = new ArrayList<>();
@@ -93,6 +98,8 @@ public class MariaDBBoardDao implements BoardDao {
       return list;
     }
   }
+
+
 }
 
 
