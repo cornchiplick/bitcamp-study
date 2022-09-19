@@ -48,7 +48,6 @@ public class BoardUpdateHandler implements Servlet {
     out.println("</html>");
   }
 
-
 }
 
 

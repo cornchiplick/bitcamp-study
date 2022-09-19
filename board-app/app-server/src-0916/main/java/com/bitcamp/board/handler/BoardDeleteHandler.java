@@ -44,6 +44,8 @@ public class BoardDeleteHandler implements Servlet {
     out.println("</html>");
 
   }
+
+
 }
 
 

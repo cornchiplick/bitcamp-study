@@ -59,7 +59,6 @@ public class MemberListHandler implements Servlet {
     out.println("</body>");
     out.println("</html>");
   }
-
 }
 
 

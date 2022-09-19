@@ -19,7 +19,6 @@ public class MemberDetailHandler implements Servlet {
     this.memberDao = memberDao;
   }
 
-
   @Override
   public void service(Map<String,String> paramMap, PrintWriter out) throws Exception {
 
@@ -67,7 +66,6 @@ public class MemberDetailHandler implements Servlet {
     out.println("</body>");
     out.println("</html>");
   }
-
 }
 
 

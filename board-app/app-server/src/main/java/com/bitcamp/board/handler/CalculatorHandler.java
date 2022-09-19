@@ -20,14 +20,16 @@ public class CalculatorHandler implements Servlet {
 
     int a = Integer.parseInt(paramMap.get("a"));
     int b = Integer.parseInt(paramMap.get("b"));
+    String op = paramMap.get("op");
 
-    switch () {
-
-
-
+    switch (op) {
+      case "+": out.println(a + b); break;
+      case "-": out.println(a - b); break;
+      case "*": out.println(a * b); break;
+      case "/": out.println(a / b); break;
+      default: out.println("해당 연산자를 지원하지 않습니다.");
     }
 
-    out.println("<h1>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ임가오프ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</h1>");
     out.println("</body>");
     out.println("</html>");
   }

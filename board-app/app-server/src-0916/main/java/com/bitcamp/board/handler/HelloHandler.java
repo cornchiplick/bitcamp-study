@@ -17,7 +17,7 @@ public class HelloHandler implements Servlet {
     out.println("<title>bitcamp</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>하하하.. 다음 주에...</h1>");
+    out.println("<h1>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ임가오프ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</h1>");
     out.println("</body>");
     out.println("</html>");
   }

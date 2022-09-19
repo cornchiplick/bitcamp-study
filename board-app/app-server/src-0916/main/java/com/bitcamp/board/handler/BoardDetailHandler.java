@@ -19,7 +19,6 @@ public class BoardDetailHandler implements Servlet {
     this.boardDao = boardDao;
   }
 
-
   @Override
   public void service(Map<String,String> paramMap, PrintWriter out) throws Exception {
 
@@ -70,6 +69,7 @@ public class BoardDetailHandler implements Servlet {
     out.println("</body>");
     out.println("</html>");
   }
+
 
 }
 

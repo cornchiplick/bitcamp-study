@@ -64,7 +64,6 @@ public class BoardListHandler implements Servlet {
     out.println("</html>");
   }
 
-
 }
 
 
