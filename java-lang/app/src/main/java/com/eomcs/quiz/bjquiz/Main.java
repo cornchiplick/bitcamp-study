@@ -1,41 +1,54 @@
 package com.eomcs.quiz.bjquiz;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 
-    Scanner in = new Scanner(System.in);
-    int N = in.nextInt();
-    String[] arr = new String[N];
+    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    StringBuilder out = new StringBuilder();
 
+    int N = Integer.parseInt(in.readLine());
+    Person[] humans = new Person[N];
+
+    int tmp;
+    String tmp2;
     for (int i = 0; i < N; i++) {
-      arr[i] = in.next();
+      StringTokenizer st = new StringTokenizer(in.readLine());
+      humans[i] = new Person();
+      humans[i].age = Integer.parseInt(st.nextToken());;
+      humans[i].name = st.nextToken();;
     }
 
-    Arrays.sort(arr, new Comparator<String>() {
-      @Override
-      public int compare(String s1, String s2) {
-        if(s1.length() == s2.length()) {
-          return s1.compareTo(s2);
-        }else {
-          return s1.length() - s2.length();
-        }
+    in.close();
 
+    Arrays.sort(humans, new Comparator<Person>() {
+      @Override
+      public int compare(Person o1, Person o2) {
+        if (o1.age == o2.age) {
+          return o1.name.compareTo(o2.name);
+        } else {
+          return o1.age - o2.age;
+        }
       }
     });
 
-    System.out.println(arr[0]);
-    for(int i = 1; i < N; i++) {
-      if (!arr[i].equals(arr[i - 1])) {
-        System.out.println(arr[i]);
-      }
+    for (Person human : humans) {
+      out.append(human.age).append(" ").append(human.name).append('\n');
     }
 
+    System.out.println(out);
 
   }
-}
 
+  static class Person {
+    int age;
+    String name;
+  }
+
+}
