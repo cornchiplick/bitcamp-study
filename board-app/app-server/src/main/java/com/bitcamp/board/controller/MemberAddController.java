@@ -21,9 +21,11 @@ public class MemberAddController extends HttpServlet {
   }
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
+      request.setCharacterEncoding("UTF-8");
+
       Member member = new Member();
       member.setName(request.getParameter("name"));
       member.setEmail(request.getParameter("email"));
@@ -33,8 +35,6 @@ public class MemberAddController extends HttpServlet {
         throw new Exception("회원 등록 실패!");
       }
 
-      response.setContentType("text/html;charset=UTF-8");
-      request.getRequestDispatcher("/member/add.jsp").include(request, response);
       response.sendRedirect("list");
 
     } catch (Exception e) {
