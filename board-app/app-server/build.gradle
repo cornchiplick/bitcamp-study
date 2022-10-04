@@ -24,7 +24,7 @@ dependencies {
     implementation 'javax.servlet:jstl:1.2'
     
     // multipart/form-data 형식 파일 저장하는
-    implementation 'commons-fileupload:commons-fileupload:1.4'
+    // implementation 'commons-fileupload:commons-fileupload:1.4'
   
     // implementation project(':app-common')
 }
