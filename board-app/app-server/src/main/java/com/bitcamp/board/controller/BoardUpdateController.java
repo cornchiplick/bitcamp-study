@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import com.bitcamp.board.domain.AttachedFile;
 import com.bitcamp.board.domain.Board;
 import com.bitcamp.board.domain.Member;
 import com.bitcamp.board.service.BoardService;
-import com.bitcamp.servlet.Controller;
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 10) // 최대 10M까지 업로드허용
-public class BoardUpdateController implements Controller {
+@Controller // 페이지 컨트롤러에 붙이는 애노테이션
+public class BoardUpdateController {
 
   BoardService boardService;
 
@@ -23,7 +23,7 @@ public class BoardUpdateController implements Controller {
     this.boardService = boardService;
   }
 
-  @Override
+  @PostMapping("/board/update")
   public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
     request.setCharacterEncoding("UTF-8");
 

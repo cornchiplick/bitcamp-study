@@ -2,28 +2,31 @@ package com.bitcamp.board.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.sql.DataSource;
+import org.mariadb.jdbc.Statement;
+import org.springframework.stereotype.Repository;
 import com.bitcamp.board.domain.AttachedFile;
 import com.bitcamp.board.domain.Board;
 import com.bitcamp.board.domain.Member;
-import com.bitcamp.sql.DataSource;
 
+@Repository // DAO 역할을 수행하는 객체에 붙이는 애노테이션
 public class MariaDBBoardDao implements BoardDao {
 
   DataSource ds;
 
-  //DAO가 사용할 의존 객체 Connection을 생성자의 파라미터로 받는다.
   public MariaDBBoardDao(DataSource ds) {
+    System.out.println("MariaDBBoardDao() 호출됨!");
     this.ds = ds;
   }
 
   @Override
   public int insert(Board board) throws Exception {
-    try (PreparedStatement pstmt = ds.getConnection().prepareStatement(
-        "insert into app_board(title,cont,mno) values(?,?,?)",
-        Statement.RETURN_GENERATED_KEYS)) {
+    try (
+        PreparedStatement pstmt = ds.getConnection().prepareStatement(
+            "insert into app_board(title,cont,mno) values(?,?,?)",
+            Statement.RETURN_GENERATED_KEYS)) {
 
       // 게시글 제목과 내용을 app_board 테이블에 저장한다.
       pstmt.setString(1, board.getTitle());
@@ -151,6 +154,7 @@ public class MariaDBBoardDao implements BoardDao {
     }
   }
 
+
   @Override
   public int insertFiles(Board board) throws Exception {
     try (PreparedStatement pstmt = ds.getConnection().prepareStatement(
@@ -165,7 +169,6 @@ public class MariaDBBoardDao implements BoardDao {
       return attachedFiles.size();
     }
   }
-
 
   @Override
   public AttachedFile findFileByNo(int fileNo) throws Exception {
@@ -205,7 +208,6 @@ public class MariaDBBoardDao implements BoardDao {
       return pstmt.executeUpdate();
     }
   }
-
 }
 
 
