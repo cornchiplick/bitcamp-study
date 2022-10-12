@@ -4,18 +4,20 @@ package com.eomcs.spring.ioc.ex07.d;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.eomcs.spring.ioc.SpringUtils;
+
 public class Exam01 {
 
-  public static void main(String[] args) {
-    ApplicationContext iocContainer = new ClassPathXmlApplicationContext(//
-        "com/eomcs/spring/ioc/ex07/d/application-context.xml");
+    public static void main(String[] args) {
+        ApplicationContext iocContainer = new ClassPathXmlApplicationContext(//
+                "com/eomcs/spring/ioc/ex07/d/application-context.xml");
 
-    System.out.println(iocContainer.getBean("c1"));
+        System.out.println(iocContainer.getBean("c1"));
 
-    System.out.println("----------------------------");
+        System.out.println("----------------------------");
 
-    // SpringUtils.printBeanNames(iocContainer);
-  }
+        SpringUtils.printBeanNames(iocContainer);
+    }
 
 }
 

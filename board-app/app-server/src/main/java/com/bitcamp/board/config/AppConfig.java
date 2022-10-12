@@ -34,7 +34,7 @@ public class AppConfig {
 
   // DataSource 를 생성하는 메서드를 호출하라고 표시한다.
   // 메서드가 리턴한 객체는 @Bean 애노테이션에 지정된 이름으로 컨테이너에 보관될 것이다.
-  @Bean("DataSource")
+  @Bean("dataSource")
   public DataSource createDataSource() {
     System.out.println("createDataSource() 호출됨!");
 
