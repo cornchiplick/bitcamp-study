@@ -1,4 +1,4 @@
-package com.bitcamp.board.controller;
+package com.bitcamp.board.controller.admin;
 
 import java.util.Map;
 import org.springframework.stereotype.Controller;
@@ -17,6 +17,7 @@ public class MemberController {
 
   public MemberController(MemberService memberService) {
     this.memberService = memberService;
+    System.out.println("MemberController() 호출됨!");
   }
 
   @GetMapping("form")

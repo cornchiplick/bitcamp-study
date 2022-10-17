@@ -19,6 +19,7 @@ public class AuthController {
 
   public AuthController(MemberService memberService) {
     this.memberService = memberService;
+    System.out.println("AuthController() 호출됨!");
   }
 
   // InternalResourceViewResolver 설정 전

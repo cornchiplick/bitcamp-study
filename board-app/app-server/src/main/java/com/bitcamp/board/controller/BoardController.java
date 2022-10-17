@@ -34,6 +34,7 @@ public class BoardController {
   public BoardController(BoardService boardService, ServletContext sc) {
     this.boardService = boardService;
     this.sc = sc;
+    System.out.println("BoardController() 호출됨!");
   }
 
   // InternalResourceViewResolver 사용 전:
