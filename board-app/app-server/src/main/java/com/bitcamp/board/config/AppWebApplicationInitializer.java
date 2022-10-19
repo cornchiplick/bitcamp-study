@@ -4,7 +4,6 @@ import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
 import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import com.bitcamp.board.filter.LoginCheckFilter;
 
 // 서블릿 컨테이너에서 웹 애플리케이션을 시작할 때:
@@ -20,33 +19,29 @@ import com.bitcamp.board.filter.LoginCheckFilter;
 // 
 //@MultipartConfig(maxFileSize = 1024 * 1024 * 10) 
 public class AppWebApplicationInitializer 
-extends AbstractAnnotationConfigDispatcherServletInitializer {
+//extends AbstractAnnotationConfigDispatcherServletInitializer 
+{
 
   // 수퍼클래스에서 Root IoC 컨테이너를 만들어 준단다.
   // 그럼 우리가 해야할 일은 컨테이너가 사용할 클래스 정보를 알려준다. 
-  @Override
   protected Class<?>[] getRootConfigClasses() {
     return new Class<?>[] {RootConfig.class, DatabaseConfig.class, MybatisConfig.class};
   }
 
-  @Override
   protected String getServletName() {
     return "app";
   }
 
-  @Override
   protected Class<?>[] getServletConfigClasses() {
     return new Class<?>[] {AppWebConfig.class};
   }
 
   // 수퍼클래스에서 DispatcherServlet 의 URL을 연결할 때 사용할 경로를 리턴한다.
-  @Override
   protected String[] getServletMappings() {
     return new String[] {"/app/*"};
   }
 
   // 수퍼클래스에서 필터를 등록할 때 사용할 정보를 리턴한다.
-  @Override
   protected Filter[] getServletFilters() {
     return new Filter[] {
         new CharacterEncodingFilter("UTF-8"), 
@@ -55,7 +50,6 @@ extends AbstractAnnotationConfigDispatcherServletInitializer {
   }
 
   //수퍼클래스에서 DispatcherServlet을 준비할 때 추가적으로 설정할 것이 있으면 설정한다.
-  @Override
   protected void customizeRegistration(Dynamic registration) {
 
     // 2) 멀티파트 설정 정보를 직접 지정하기
